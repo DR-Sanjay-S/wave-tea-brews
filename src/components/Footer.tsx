@@ -1,5 +1,5 @@
 import waveTeaLogo from "@/assets/wavetea-logo.png";
-import { Instagram, Twitter, Mail } from "lucide-react";
+import { Instagram } from "lucide-react";
 
 const Footer = () => {
   return (
@@ -26,31 +26,26 @@ const Footer = () => {
             <p className="font-display text-xl font-semibold">
               Nexcubic
             </p>
+            <a 
+              href="https://www.instagram.com/nexcubic/" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 mt-3 px-4 py-2 bg-gradient-to-r from-purple-500 to-pink-500 text-white rounded-full hover:scale-105 transition-transform duration-300 text-sm"
+            >
+              <Instagram className="w-4 h-4" />
+              <span className="font-body font-medium">Follow Nexcubic</span>
+            </a>
           </div>
 
-          {/* Social Links */}
+          {/* Delivery Coming Soon */}
           <div className="flex items-center gap-4">
-            <a 
-              href="#" 
-              className="w-10 h-10 rounded-full bg-secondary-foreground/10 flex items-center justify-center hover:bg-primary hover:text-primary-foreground transition-colors duration-300"
-              aria-label="Instagram"
-            >
-              <Instagram className="w-5 h-5" />
-            </a>
-            <a 
-              href="#" 
-              className="w-10 h-10 rounded-full bg-secondary-foreground/10 flex items-center justify-center hover:bg-primary hover:text-primary-foreground transition-colors duration-300"
-              aria-label="Twitter"
-            >
-              <Twitter className="w-5 h-5" />
-            </a>
-            <a 
-              href="#" 
-              className="w-10 h-10 rounded-full bg-secondary-foreground/10 flex items-center justify-center hover:bg-primary hover:text-primary-foreground transition-colors duration-300"
-              aria-label="Email"
-            >
-              <Mail className="w-5 h-5" />
-            </a>
+            <div className="text-center">
+              <p className="text-sm text-secondary-foreground/70 font-body mb-2">Coming soon on</p>
+              <div className="flex items-center gap-3">
+                <span className="px-3 py-1 bg-secondary-foreground/10 rounded-full text-sm font-medium">Swiggy</span>
+                <span className="px-3 py-1 bg-secondary-foreground/10 rounded-full text-sm font-medium">Zomato</span>
+              </div>
+            </div>
           </div>
         </div>
 
