@@ -20,7 +20,7 @@ const features = [
 
 const FeaturesSection = () => {
   return (
-    <section className="py-20 md:py-32 bg-card relative overflow-hidden">
+    <section id="features" className="py-20 md:py-32 bg-card relative overflow-hidden">
       {/* Background decoration */}
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
       
