@@ -1,13 +1,33 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import { Helmet } from "react-helmet-async";
+import Header from "@/components/Header";
+import HeroSection from "@/components/HeroSection";
+import FeaturesSection from "@/components/FeaturesSection";
+import NotifySection from "@/components/NotifySection";
+import Footer from "@/components/Footer";
 
 const Index = () => {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-background">
-      <div className="text-center">
-        <h1 className="mb-4 text-4xl font-bold">Welcome to Your Blank App</h1>
-        <p className="text-xl text-muted-foreground">Start building your amazing project here!</p>
+    <>
+      <Helmet>
+        <title>WaveTea - Premium Herbal Tea & Drinks | Launching Soon</title>
+        <meta 
+          name="description" 
+          content="WaveTea brings you pure herbal wellness. Discover premium organic herbal teas and drinks crafted for your mind, body & soul. Make ur life simple." 
+        />
+        <meta name="keywords" content="herbal tea, organic tea, wellness drinks, WaveTea, natural tea, herbal drinks" />
+        <link rel="canonical" href="https://wavetea.com" />
+      </Helmet>
+
+      <div className="min-h-screen bg-background">
+        <Header />
+        <main>
+          <HeroSection />
+          <FeaturesSection />
+          <NotifySection />
+        </main>
+        <Footer />
       </div>
-    </div>
+    </>
   );
 };
 
