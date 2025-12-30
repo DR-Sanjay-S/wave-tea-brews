@@ -20,7 +20,7 @@ const NotifySection = () => {
   };
 
   return (
-    <section className="py-20 md:py-32 hero-gradient relative overflow-hidden">
+    <section id="notify" className="py-20 md:py-32 hero-gradient relative overflow-hidden">
       {/* Decorative circles */}
       <div className="absolute top-10 right-10 w-64 h-64 bg-primary/10 rounded-full blur-3xl" />
       <div className="absolute bottom-10 left-10 w-48 h-48 bg-accent/10 rounded-full blur-3xl" />
