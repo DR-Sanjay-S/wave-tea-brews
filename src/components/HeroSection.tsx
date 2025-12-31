@@ -8,14 +8,20 @@ import { Instagram } from "lucide-react";
 const HeroSection = () => {
   return (
     <section className="relative min-h-screen hero-gradient overflow-hidden pt-24 md:pt-32">
-      {/* Decorative elements */}
-      <div className="absolute top-20 left-10 w-32 h-32 bg-primary/5 rounded-full blur-3xl" />
-      <div className="absolute bottom-40 right-20 w-48 h-48 bg-accent/10 rounded-full blur-3xl" />
+      {/* Decorative leaves - like reference image */}
+      <div className="absolute top-16 right-8 w-20 h-20 md:w-28 md:h-28 bg-gradient-to-br from-green-700 to-green-900 rounded-[0_70%_0_70%] rotate-45 opacity-70 animate-[sway_5s_ease-in-out_infinite]" />
+      <div className="absolute bottom-32 left-4 w-16 h-16 md:w-24 md:h-24 bg-gradient-to-br from-green-600 to-green-800 rounded-[0_70%_0_70%] -rotate-12 opacity-60 animate-[sway_4s_ease-in-out_infinite_0.5s]" />
+      <div className="absolute top-1/3 left-8 w-12 h-12 md:w-16 md:h-16 bg-gradient-to-br from-green-600 to-green-800 rounded-[0_70%_0_70%] rotate-[30deg] opacity-50 animate-[sway_6s_ease-in-out_infinite_1s]" />
       
-      {/* Bubble decorations */}
-      <div className="absolute top-1/3 left-1/4 w-4 h-4 bg-primary/30 rounded-full animate-bubble" style={{ animationDelay: '0s' }} />
-      <div className="absolute top-1/2 right-1/3 w-3 h-3 bg-primary/20 rounded-full animate-bubble" style={{ animationDelay: '0.5s' }} />
-      <div className="absolute bottom-1/3 left-1/3 w-5 h-5 bg-primary/25 rounded-full animate-bubble" style={{ animationDelay: '1s' }} />
+      {/* Decorative spheres - like reference image */}
+      <div className="absolute bottom-20 left-1/4 w-6 h-6 rounded-full bg-gradient-to-br from-green-600 to-green-900 shadow-lg" />
+      <div className="absolute bottom-32 right-1/4 w-4 h-4 rounded-full bg-gradient-to-br from-gray-400 to-gray-600 shadow-lg" />
+      <div className="absolute top-1/2 right-12 w-8 h-8 rounded-full bg-gradient-to-br from-green-700 to-green-950 shadow-lg" />
+      <div className="absolute bottom-40 left-12 w-5 h-5 rounded-full bg-gradient-to-br from-gray-800 to-black shadow-lg" />
+      <div className="absolute top-40 left-1/3 w-10 h-10 rounded-full bg-gradient-to-br from-green-500 to-green-700 opacity-60" />
+      
+      {/* Large decorative circle backdrop */}
+      <div className="absolute top-1/4 right-1/4 w-[300px] h-[300px] md:w-[400px] md:h-[400px] rounded-full bg-gradient-to-br from-green-800/50 to-green-950/50 blur-sm" />
       
       <div className="container mx-auto px-6 py-12 md:py-20">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
@@ -32,21 +38,21 @@ const HeroSection = () => {
 
             {/* Tagline */}
             <div className="space-y-4">
-              <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-secondary leading-tight">
+              <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight drop-shadow-lg">
                 Herbal Tea &
-                <span className="block text-gradient">Bubba Drinks</span>
+                <span className="block text-lime-200">Bubba Drinks</span>
               </h1>
-              <p className="text-lg md:text-xl text-muted-foreground font-body max-w-md mx-auto lg:mx-0">
+              <p className="text-lg md:text-xl text-white/90 font-body max-w-md mx-auto lg:mx-0 drop-shadow">
                 Premium herbal teas & refreshing bubble drinks. Order soon on Swiggy & Zomato!
               </p>
             </div>
 
             {/* Coming Soon Badge */}
             <div className="flex flex-col sm:flex-row items-center gap-4 justify-center lg:justify-start">
-              <div className="inline-flex items-center gap-3 px-6 py-3 bg-secondary text-secondary-foreground rounded-full shadow-soft animate-pulse-glow">
+              <div className="inline-flex items-center gap-3 px-6 py-3 bg-white/20 backdrop-blur-sm text-white rounded-full shadow-lg border border-white/30 animate-pulse-glow">
                 <span className="relative flex h-3 w-3">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
-                  <span className="relative inline-flex rounded-full h-3 w-3 bg-primary"></span>
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-lime-300 opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-3 w-3 bg-lime-300"></span>
                 </span>
                 <span className="font-display text-lg font-semibold">Launching Soon</span>
               </div>
@@ -54,23 +60,23 @@ const HeroSection = () => {
 
             {/* Delivery Platforms */}
             <div className="flex items-center gap-6 justify-center lg:justify-start">
-              <div className="flex items-center gap-2 px-4 py-2 bg-card rounded-full border border-border">
+              <div className="flex items-center gap-2 px-4 py-2 bg-white/20 backdrop-blur-sm rounded-full border border-white/30">
                 <span className="text-2xl">🍽️</span>
-                <span className="font-body font-medium text-secondary">Swiggy</span>
+                <span className="font-body font-medium text-white">Swiggy</span>
               </div>
-              <div className="flex items-center gap-2 px-4 py-2 bg-card rounded-full border border-border">
+              <div className="flex items-center gap-2 px-4 py-2 bg-white/20 backdrop-blur-sm rounded-full border border-white/30">
                 <span className="text-2xl">🍕</span>
-                <span className="font-body font-medium text-secondary">Zomato</span>
+                <span className="font-body font-medium text-white">Zomato</span>
               </div>
             </div>
 
             {/* Collaboration Badge */}
             <div className="pt-4 flex flex-col sm:flex-row items-center gap-4 justify-center lg:justify-start">
               <div>
-                <p className="text-sm text-muted-foreground font-body">
+                <p className="text-sm text-white/80 font-body">
                   In collaboration with
                 </p>
-                <p className="text-xl font-display font-semibold text-secondary mt-1">
+                <p className="text-xl font-display font-semibold text-white mt-1">
                   Nexcubic
                 </p>
               </div>
@@ -78,7 +84,7 @@ const HeroSection = () => {
                 href="https://www.instagram.com/nexcubic/" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-purple-500 to-pink-500 text-white rounded-full hover:scale-105 transition-transform duration-300"
+                className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-purple-500 to-pink-500 text-white rounded-full hover:scale-105 transition-transform duration-300 shadow-lg"
               >
                 <Instagram className="w-5 h-5" />
                 <span className="font-body font-medium">Follow Nexcubic</span>
@@ -88,45 +94,45 @@ const HeroSection = () => {
 
           {/* Right Content - Floating Bubba Drinks */}
           <div className="relative h-[500px] md:h-[600px] lg:h-[700px]">
-            {/* Central Product - Pink Bubba */}
+            {/* Central Product - Matcha with Golden Boba */}
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-56 md:w-64 lg:w-72 z-20 animate-pour">
               <FloatingProduct 
-                imageSrc={bubbaDrink1} 
-                alt="Classic Pink Bubba Tea"
+                imageSrc={bubbaDrink2} 
+                alt="Golden Boba Matcha"
                 animationClass="float-animation"
                 showLogo={false}
               />
-              <div className="text-center mt-4">
-                <p className="font-display text-lg font-semibold text-secondary">Classic Pink</p>
-                <p className="text-sm text-muted-foreground">Strawberry Bubba</p>
+              <div className="text-center mt-4 bg-white/20 backdrop-blur-sm rounded-full px-4 py-2">
+                <p className="font-display text-lg font-semibold text-white">Golden Boba</p>
+                <p className="text-sm text-white/80">Matcha Latte</p>
               </div>
             </div>
 
-            {/* Left Product - Brown Sugar */}
+            {/* Left Product - Matcha Cream */}
             <div className="absolute top-1/4 left-0 md:left-5 w-40 md:w-48 lg:w-52 z-10 animate-pour" style={{ animationDelay: '0.3s' }}>
               <FloatingProduct 
-                imageSrc={bubbaDrink2} 
-                alt="Brown Sugar Tiger Bubba"
+                imageSrc={bubbaDrink1} 
+                alt="Matcha Cream Bubba"
                 animationClass="float-animation-delayed"
                 showLogo={false}
               />
-              <div className="text-center mt-3">
-                <p className="font-display text-base font-semibold text-secondary">Tiger Milk</p>
-                <p className="text-xs text-muted-foreground">Brown Sugar</p>
+              <div className="text-center mt-3 bg-white/20 backdrop-blur-sm rounded-full px-3 py-1.5">
+                <p className="font-display text-base font-semibold text-white">Matcha Cream</p>
+                <p className="text-xs text-white/80">Classic Green</p>
               </div>
             </div>
 
-            {/* Right Product - Taro Purple */}
+            {/* Right Product - Green Tea Jelly */}
             <div className="absolute bottom-1/4 right-0 md:right-5 w-44 md:w-52 lg:w-56 z-10 animate-pour" style={{ animationDelay: '0.6s' }}>
               <FloatingProduct 
                 imageSrc={bubbaDrink3} 
-                alt="Taro Purple Bubba"
+                alt="Green Tea Jelly Bubba"
                 animationClass="float-animation-slow"
                 showLogo={false}
               />
-              <div className="text-center mt-3">
-                <p className="font-display text-base font-semibold text-secondary">Purple Taro</p>
-                <p className="text-xs text-muted-foreground">Creamy Bubba</p>
+              <div className="text-center mt-3 bg-white/20 backdrop-blur-sm rounded-full px-3 py-1.5">
+                <p className="font-display text-base font-semibold text-white">Green Tea</p>
+                <p className="text-xs text-white/80">Jelly Bubba</p>
               </div>
             </div>
           </div>
