@@ -9,19 +9,19 @@ const HeroSection = () => {
   return (
     <section className="relative min-h-screen hero-gradient overflow-hidden pt-24 md:pt-32">
       {/* Decorative leaves - like reference image */}
-      <div className="absolute top-16 right-8 w-20 h-20 md:w-28 md:h-28 bg-gradient-to-br from-green-700 to-green-900 rounded-[0_70%_0_70%] rotate-45 opacity-70 animate-[sway_5s_ease-in-out_infinite]" />
-      <div className="absolute bottom-32 left-4 w-16 h-16 md:w-24 md:h-24 bg-gradient-to-br from-green-600 to-green-800 rounded-[0_70%_0_70%] -rotate-12 opacity-60 animate-[sway_4s_ease-in-out_infinite_0.5s]" />
-      <div className="absolute top-1/3 left-8 w-12 h-12 md:w-16 md:h-16 bg-gradient-to-br from-green-600 to-green-800 rounded-[0_70%_0_70%] rotate-[30deg] opacity-50 animate-[sway_6s_ease-in-out_infinite_1s]" />
+      <div className="absolute top-16 right-8 w-20 h-20 md:w-28 md:h-28 bg-gradient-to-br from-green-600 to-green-800 rounded-[0_70%_0_70%] rotate-45 opacity-60 animate-[sway_5s_ease-in-out_infinite]" />
+      <div className="absolute bottom-32 left-4 w-16 h-16 md:w-24 md:h-24 bg-gradient-to-br from-green-500 to-green-700 rounded-[0_70%_0_70%] -rotate-12 opacity-50 animate-[sway_4s_ease-in-out_infinite_0.5s]" />
+      <div className="absolute top-1/3 left-8 w-12 h-12 md:w-16 md:h-16 bg-gradient-to-br from-green-500 to-green-700 rounded-[0_70%_0_70%] rotate-[30deg] opacity-40 animate-[sway_6s_ease-in-out_infinite_1s]" />
       
       {/* Decorative spheres - like reference image */}
-      <div className="absolute bottom-20 left-1/4 w-6 h-6 rounded-full bg-gradient-to-br from-green-600 to-green-900 shadow-lg" />
-      <div className="absolute bottom-32 right-1/4 w-4 h-4 rounded-full bg-gradient-to-br from-gray-400 to-gray-600 shadow-lg" />
-      <div className="absolute top-1/2 right-12 w-8 h-8 rounded-full bg-gradient-to-br from-green-700 to-green-950 shadow-lg" />
-      <div className="absolute bottom-40 left-12 w-5 h-5 rounded-full bg-gradient-to-br from-gray-800 to-black shadow-lg" />
-      <div className="absolute top-40 left-1/3 w-10 h-10 rounded-full bg-gradient-to-br from-green-500 to-green-700 opacity-60" />
+      <div className="absolute bottom-20 left-1/4 w-6 h-6 rounded-full bg-gradient-to-br from-green-500 to-green-800 shadow-lg" />
+      <div className="absolute bottom-32 right-1/4 w-4 h-4 rounded-full bg-gradient-to-br from-gray-300 to-gray-500 shadow-lg" />
+      <div className="absolute top-1/2 right-12 w-8 h-8 rounded-full bg-gradient-to-br from-green-600 to-green-900 shadow-lg" />
+      <div className="absolute bottom-40 left-12 w-5 h-5 rounded-full bg-gradient-to-br from-gray-700 to-black shadow-lg" />
+      <div className="absolute top-40 left-1/3 w-10 h-10 rounded-full bg-gradient-to-br from-green-400 to-green-600 opacity-50" />
       
       {/* Large decorative circle backdrop */}
-      <div className="absolute top-1/4 right-1/4 w-[300px] h-[300px] md:w-[400px] md:h-[400px] rounded-full bg-gradient-to-br from-green-800/50 to-green-950/50 blur-sm" />
+      <div className="absolute top-1/4 right-1/4 w-[300px] h-[300px] md:w-[450px] md:h-[450px] rounded-full bg-gradient-to-br from-green-700/40 to-green-900/40 blur-sm" />
       
       <div className="container mx-auto px-6 py-12 md:py-20">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
