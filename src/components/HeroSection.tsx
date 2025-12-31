@@ -1,142 +1,103 @@
 import waveTeaLogo from "@/assets/wavetea-logo.png";
-import bubbaDrink1 from "@/assets/bubba-drink-1.png";
-import bubbaDrink2 from "@/assets/bubba-drink-2.png";
-import bubbaDrink3 from "@/assets/bubba-drink-3.png";
-import FloatingProduct from "./FloatingProduct";
-import { Instagram } from "lucide-react";
+import heroBanner from "@/assets/hero-banner.png";
+import { Instagram, ArrowRight } from "lucide-react";
 
 const HeroSection = () => {
   return (
-    <section className="relative min-h-screen hero-gradient overflow-hidden pt-24 md:pt-32">
-      {/* Decorative leaves - like reference image */}
-      <div className="absolute top-16 right-8 w-20 h-20 md:w-28 md:h-28 bg-gradient-to-br from-green-600 to-green-800 rounded-[0_70%_0_70%] rotate-45 opacity-60 animate-[sway_5s_ease-in-out_infinite]" />
-      <div className="absolute bottom-32 left-4 w-16 h-16 md:w-24 md:h-24 bg-gradient-to-br from-green-500 to-green-700 rounded-[0_70%_0_70%] -rotate-12 opacity-50 animate-[sway_4s_ease-in-out_infinite_0.5s]" />
-      <div className="absolute top-1/3 left-8 w-12 h-12 md:w-16 md:h-16 bg-gradient-to-br from-green-500 to-green-700 rounded-[0_70%_0_70%] rotate-[30deg] opacity-40 animate-[sway_6s_ease-in-out_infinite_1s]" />
+    <section className="relative min-h-screen overflow-hidden">
+      {/* Hero Background Image */}
+      <div className="absolute inset-0 z-0">
+        <img 
+          src={heroBanner} 
+          alt="WaveTea Bubble Drinks"
+          className="w-full h-full object-cover object-center"
+        />
+        {/* Overlay for better text readability */}
+        <div className="absolute inset-0 bg-gradient-to-r from-black/40 via-transparent to-transparent" />
+      </div>
       
-      {/* Decorative spheres - like reference image */}
-      <div className="absolute bottom-20 left-1/4 w-6 h-6 rounded-full bg-gradient-to-br from-green-500 to-green-800 shadow-lg" />
-      <div className="absolute bottom-32 right-1/4 w-4 h-4 rounded-full bg-gradient-to-br from-gray-300 to-gray-500 shadow-lg" />
-      <div className="absolute top-1/2 right-12 w-8 h-8 rounded-full bg-gradient-to-br from-green-600 to-green-900 shadow-lg" />
-      <div className="absolute bottom-40 left-12 w-5 h-5 rounded-full bg-gradient-to-br from-gray-700 to-black shadow-lg" />
-      <div className="absolute top-40 left-1/3 w-10 h-10 rounded-full bg-gradient-to-br from-green-400 to-green-600 opacity-50" />
+      {/* Animated particles */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute top-1/4 left-1/4 w-3 h-3 bg-lime-300/60 rounded-full animate-[float_4s_ease-in-out_infinite]" />
+        <div className="absolute top-1/3 right-1/3 w-2 h-2 bg-yellow-300/50 rounded-full animate-[float_5s_ease-in-out_infinite_0.5s]" />
+        <div className="absolute bottom-1/4 left-1/3 w-4 h-4 bg-lime-200/40 rounded-full animate-[float_6s_ease-in-out_infinite_1s]" />
+        <div className="absolute top-1/2 left-1/5 w-2 h-2 bg-white/30 rounded-full animate-[float_3s_ease-in-out_infinite_0.2s]" />
+      </div>
       
-      {/* Large decorative circle backdrop */}
-      <div className="absolute top-1/4 right-1/4 w-[300px] h-[300px] md:w-[450px] md:h-[450px] rounded-full bg-gradient-to-br from-green-700/40 to-green-900/40 blur-sm" />
-      
-      <div className="container mx-auto px-6 py-12 md:py-20">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-          {/* Left Content */}
-          <div className="space-y-8 text-center lg:text-left animate-fade-in-up">
-            {/* Main Logo - Large and Attractive */}
-            <div className="flex justify-center lg:justify-start">
-              <img 
-                src={waveTeaLogo} 
-                alt="WaveTea - Make ur life simple" 
-                className="h-32 md:h-44 lg:h-52 w-auto drop-shadow-lg"
-              />
-            </div>
+      <div className="container relative z-10 mx-auto px-6 py-24 md:py-32 min-h-screen flex items-center">
+        <div className="max-w-xl">
+          {/* Main Logo */}
+          <div className="mb-8 animate-fade-in-up">
+            <img 
+              src={waveTeaLogo} 
+              alt="WaveTea - Make ur life simple" 
+              className="h-28 md:h-40 lg:h-48 w-auto drop-shadow-2xl filter brightness-110"
+            />
+          </div>
 
-            {/* Tagline */}
-            <div className="space-y-4">
-              <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight drop-shadow-lg">
-                Herbal Tea &
-                <span className="block text-lime-200">Bubba Drinks</span>
-              </h1>
-              <p className="text-lg md:text-xl text-white/90 font-body max-w-md mx-auto lg:mx-0 drop-shadow">
-                Premium herbal teas & refreshing bubble drinks. Order soon on Swiggy & Zomato!
-              </p>
-            </div>
+          {/* Tagline */}
+          <div className="space-y-4 mb-8 animate-fade-in-up" style={{ animationDelay: '0.1s' }}>
+            <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight drop-shadow-2xl">
+              Herbal Tea &
+              <span className="block bg-gradient-to-r from-lime-300 to-yellow-200 bg-clip-text text-transparent">Bubba Drinks</span>
+            </h1>
+            <p className="text-lg md:text-xl text-white/95 font-body max-w-md drop-shadow-lg">
+              Premium herbal teas & refreshing bubble drinks. Order soon on Swiggy & Zomato!
+            </p>
+          </div>
 
-            {/* Coming Soon Badge */}
-            <div className="flex flex-col sm:flex-row items-center gap-4 justify-center lg:justify-start">
-              <div className="inline-flex items-center gap-3 px-6 py-3 bg-white/20 backdrop-blur-sm text-white rounded-full shadow-lg border border-white/30 animate-pulse-glow">
-                <span className="relative flex h-3 w-3">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-lime-300 opacity-75"></span>
-                  <span className="relative inline-flex rounded-full h-3 w-3 bg-lime-300"></span>
-                </span>
-                <span className="font-display text-lg font-semibold">Launching Soon</span>
-              </div>
-            </div>
-
-            {/* Delivery Platforms */}
-            <div className="flex items-center gap-6 justify-center lg:justify-start">
-              <div className="flex items-center gap-2 px-4 py-2 bg-white/20 backdrop-blur-sm rounded-full border border-white/30">
-                <span className="text-2xl">🍽️</span>
-                <span className="font-body font-medium text-white">Swiggy</span>
-              </div>
-              <div className="flex items-center gap-2 px-4 py-2 bg-white/20 backdrop-blur-sm rounded-full border border-white/30">
-                <span className="text-2xl">🍕</span>
-                <span className="font-body font-medium text-white">Zomato</span>
-              </div>
-            </div>
-
-            {/* Collaboration Badge */}
-            <div className="pt-4 flex flex-col sm:flex-row items-center gap-4 justify-center lg:justify-start">
-              <div>
-                <p className="text-sm text-white/80 font-body">
-                  In collaboration with
-                </p>
-                <p className="text-xl font-display font-semibold text-white mt-1">
-                  Nexcubic
-                </p>
-              </div>
-              <a 
-                href="https://www.instagram.com/nexcubic/" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-purple-500 to-pink-500 text-white rounded-full hover:scale-105 transition-transform duration-300 shadow-lg"
-              >
-                <Instagram className="w-5 h-5" />
-                <span className="font-body font-medium">Follow Nexcubic</span>
-              </a>
+          {/* Coming Soon Badge */}
+          <div className="flex flex-wrap items-center gap-4 mb-8 animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
+            <div className="inline-flex items-center gap-3 px-6 py-3 bg-white/15 backdrop-blur-md text-white rounded-full shadow-xl border border-white/25">
+              <span className="relative flex h-3 w-3">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-lime-400 opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-3 w-3 bg-lime-400"></span>
+              </span>
+              <span className="font-display text-lg font-semibold">Launching Soon</span>
             </div>
           </div>
 
-          {/* Right Content - Floating Bubba Drinks */}
-          <div className="relative h-[500px] md:h-[600px] lg:h-[700px]">
-            {/* Central Product - Matcha with Golden Boba */}
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-56 md:w-64 lg:w-72 z-20 animate-pour">
-              <FloatingProduct 
-                imageSrc={bubbaDrink2} 
-                alt="Golden Boba Matcha"
-                animationClass="float-animation"
-                showLogo={false}
-              />
-              <div className="text-center mt-4 bg-white/20 backdrop-blur-sm rounded-full px-4 py-2">
-                <p className="font-display text-lg font-semibold text-white">Golden Boba</p>
-                <p className="text-sm text-white/80">Matcha Latte</p>
-              </div>
+          {/* Delivery Platforms */}
+          <div className="flex flex-wrap items-center gap-4 mb-8 animate-fade-in-up" style={{ animationDelay: '0.3s' }}>
+            <div className="flex items-center gap-2 px-5 py-2.5 bg-white/15 backdrop-blur-md rounded-full border border-white/25 hover:bg-white/25 transition-all duration-300 cursor-pointer">
+              <span className="text-2xl">🍽️</span>
+              <span className="font-body font-semibold text-white">Swiggy</span>
             </div>
+            <div className="flex items-center gap-2 px-5 py-2.5 bg-white/15 backdrop-blur-md rounded-full border border-white/25 hover:bg-white/25 transition-all duration-300 cursor-pointer">
+              <span className="text-2xl">🍕</span>
+              <span className="font-body font-semibold text-white">Zomato</span>
+            </div>
+          </div>
 
-            {/* Left Product - Matcha Cream */}
-            <div className="absolute top-1/4 left-0 md:left-5 w-40 md:w-48 lg:w-52 z-10 animate-pour" style={{ animationDelay: '0.3s' }}>
-              <FloatingProduct 
-                imageSrc={bubbaDrink1} 
-                alt="Matcha Cream Bubba"
-                animationClass="float-animation-delayed"
-                showLogo={false}
-              />
-              <div className="text-center mt-3 bg-white/20 backdrop-blur-sm rounded-full px-3 py-1.5">
-                <p className="font-display text-base font-semibold text-white">Matcha Cream</p>
-                <p className="text-xs text-white/80">Classic Green</p>
-              </div>
+          {/* Collaboration Badge */}
+          <div className="flex flex-wrap items-center gap-4 animate-fade-in-up" style={{ animationDelay: '0.4s' }}>
+            <div className="bg-white/10 backdrop-blur-md rounded-2xl px-5 py-3 border border-white/20">
+              <p className="text-sm text-white/80 font-body">In collaboration with</p>
+              <p className="text-xl font-display font-bold text-white">Nexcubic</p>
             </div>
-
-            {/* Right Product - Green Tea Jelly */}
-            <div className="absolute bottom-1/4 right-0 md:right-5 w-44 md:w-52 lg:w-56 z-10 animate-pour" style={{ animationDelay: '0.6s' }}>
-              <FloatingProduct 
-                imageSrc={bubbaDrink3} 
-                alt="Green Tea Jelly Bubba"
-                animationClass="float-animation-slow"
-                showLogo={false}
-              />
-              <div className="text-center mt-3 bg-white/20 backdrop-blur-sm rounded-full px-3 py-1.5">
-                <p className="font-display text-base font-semibold text-white">Green Tea</p>
-                <p className="text-xs text-white/80">Jelly Bubba</p>
-              </div>
-            </div>
+            <a 
+              href="https://www.instagram.com/nexcubic/" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="group inline-flex items-center gap-2 px-5 py-3 bg-gradient-to-r from-purple-600 to-pink-500 text-white rounded-full hover:scale-105 hover:shadow-2xl transition-all duration-300 shadow-lg"
+            >
+              <Instagram className="w-5 h-5" />
+              <span className="font-body font-semibold">Follow Nexcubic</span>
+              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+            </a>
           </div>
         </div>
+      </div>
+      
+      {/* Website Badge - Bottom Right */}
+      <div className="absolute bottom-8 right-8 z-20 animate-fade-in-up" style={{ animationDelay: '0.5s' }}>
+        <a 
+          href="https://wavetea.shop" 
+          className="inline-flex items-center gap-2 px-5 py-2.5 bg-white/95 text-gray-800 font-display font-bold rounded-lg shadow-xl hover:scale-105 transition-transform duration-300"
+        >
+          WAVETEA.SHOP
+          <ArrowRight className="w-4 h-4" />
+        </a>
       </div>
     </section>
   );
