@@ -4,7 +4,7 @@ import bubbaDrink3 from "@/assets/bubba-drink-3.png";
 import herbalTea1 from "@/assets/herbal-tea-1.png";
 import herbalTea2 from "@/assets/herbal-tea-2.png";
 import herbalTea3 from "@/assets/herbal-tea-3.png";
-import { Leaf, Sparkles, Heart, Zap, Moon } from "lucide-react";
+import { Leaf, Sparkles, Heart, Zap, Moon, CheckCircle } from "lucide-react";
 
 interface Product {
   id: number;
@@ -15,7 +15,7 @@ interface Product {
   badge?: string;
   advantages: string[];
   icon: React.ReactNode;
-  color: string;
+  gradient: string;
 }
 
 const products: Product[] = [
@@ -28,7 +28,7 @@ const products: Product[] = [
     badge: "Bestseller",
     advantages: ["Rich in antioxidants", "Natural energy boost", "Creamy texture"],
     icon: <Leaf className="w-4 h-4" />,
-    color: "from-green-400 to-green-600",
+    gradient: "from-emerald-500/20 to-green-600/20",
   },
   {
     id: 2,
@@ -39,7 +39,7 @@ const products: Product[] = [
     badge: "Popular",
     advantages: ["Vitamin C boost", "Fruity burst", "Instagram worthy"],
     icon: <Sparkles className="w-4 h-4" />,
-    color: "from-yellow-400 to-orange-500",
+    gradient: "from-amber-500/20 to-yellow-500/20",
   },
   {
     id: 3,
@@ -50,7 +50,7 @@ const products: Product[] = [
     badge: "New",
     advantages: ["Low calorie", "Refreshing taste", "Chewy jelly bits"],
     icon: <Zap className="w-4 h-4" />,
-    color: "from-emerald-400 to-teal-600",
+    gradient: "from-teal-500/20 to-cyan-500/20",
   },
   {
     id: 4,
@@ -61,7 +61,7 @@ const products: Product[] = [
     badge: "Relaxing",
     advantages: ["Better sleep", "Reduces stress", "Caffeine free"],
     icon: <Moon className="w-4 h-4" />,
-    color: "from-amber-400 to-yellow-500",
+    gradient: "from-amber-400/20 to-orange-500/20",
   },
   {
     id: 5,
@@ -72,7 +72,7 @@ const products: Product[] = [
     badge: "Refreshing",
     advantages: ["Aids digestion", "Fresh breath", "Cooling effect"],
     icon: <Leaf className="w-4 h-4" />,
-    color: "from-green-400 to-emerald-500",
+    gradient: "from-green-400/20 to-emerald-500/20",
   },
   {
     id: 6,
@@ -83,61 +83,61 @@ const products: Product[] = [
     badge: "Premium",
     advantages: ["Heart healthy", "Vitamin C rich", "Beautiful color"],
     icon: <Heart className="w-4 h-4" />,
-    color: "from-rose-400 to-red-500",
+    gradient: "from-rose-400/20 to-pink-500/20",
   },
 ];
 
 const ProductCard = ({ product, index }: { product: Product; index: number }) => (
   <div
-    className="group relative bg-card rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 animate-fade-in-up border border-border/50"
-    style={{ animationDelay: `${index * 0.1}s` }}
+    className="group relative bg-card rounded-3xl overflow-hidden border border-border/50 hover:border-primary/30 transition-all duration-500 hover:-translate-y-2 opacity-0 animate-fade-in-up"
+    style={{ animationDelay: `${index * 0.1}s`, animationFillMode: 'forwards' }}
   >
     {/* Badge */}
     {product.badge && (
-      <span className={`absolute top-4 right-4 z-20 px-3 py-1.5 bg-gradient-to-r ${product.color} text-white text-xs font-bold rounded-full shadow-lg`}>
+      <span className="absolute top-4 right-4 z-20 px-3 py-1.5 bg-primary text-primary-foreground text-xs font-bold rounded-full">
         {product.badge}
       </span>
     )}
     
-    {/* Image Container - properly contained with curved corners */}
-    <div className="relative h-52 mx-4 mt-4 rounded-2xl overflow-hidden bg-gradient-to-br from-muted/50 to-muted">
-      <div className={`absolute inset-0 bg-gradient-to-br ${product.color} opacity-10`} />
+    {/* Image Container */}
+    <div className={`relative h-56 m-4 rounded-2xl overflow-hidden bg-gradient-to-br ${product.gradient}`}>
+      <div className="absolute inset-0 bg-secondary/30" />
       <img
         src={product.image}
         alt={product.name}
-        className="w-full h-full object-contain p-4 drop-shadow-xl group-hover:scale-110 transition-transform duration-500"
+        className="w-full h-full object-contain p-6 drop-shadow-xl group-hover:scale-110 transition-transform duration-500"
       />
-      {/* Glow effect on hover */}
-      <div className={`absolute inset-0 bg-gradient-to-t ${product.color} opacity-0 group-hover:opacity-20 transition-opacity duration-500 rounded-2xl`} />
+      {/* Glow on hover */}
+      <div className="absolute inset-0 bg-primary/0 group-hover:bg-primary/10 transition-colors duration-500 rounded-2xl" />
     </div>
 
     {/* Content */}
-    <div className="p-6">
-      <div className="flex items-center gap-2 mb-3">
-        <span className={`p-2 bg-gradient-to-br ${product.color} rounded-xl text-white shadow-md`}>
+    <div className="p-6 pt-2">
+      <div className="flex items-center gap-3 mb-3">
+        <span className="p-2 bg-primary/10 rounded-xl text-primary">
           {product.icon}
         </span>
-        <h4 className="font-display text-xl font-bold text-foreground">
+        <h4 className="text-xl font-bold text-foreground">
           {product.name}
         </h4>
       </div>
       
-      <p className="text-muted-foreground font-body text-sm mb-4 leading-relaxed line-clamp-2">
+      <p className="text-muted-foreground text-sm mb-5 leading-relaxed line-clamp-2">
         {product.description}
       </p>
 
       {/* Advantages */}
-      <div className="space-y-2 mb-4">
+      <div className="space-y-2.5 mb-5">
         {product.advantages.map((advantage, i) => (
-          <div key={i} className="flex items-center gap-2 text-sm">
-            <span className={`w-2 h-2 rounded-full bg-gradient-to-r ${product.color}`} />
-            <span className="text-foreground/80 font-body">{advantage}</span>
+          <div key={i} className="flex items-center gap-2.5 text-sm">
+            <CheckCircle className="w-4 h-4 text-primary flex-shrink-0" />
+            <span className="text-foreground/80">{advantage}</span>
           </div>
         ))}
       </div>
 
-      <div className="pt-4 border-t border-border">
-        <span className={`text-xs font-bold font-body bg-gradient-to-r ${product.color} bg-clip-text text-transparent`}>
+      <div className="pt-4 border-t border-border/50">
+        <span className="text-xs font-semibold text-primary uppercase tracking-wider">
           {product.category === "bubba" ? "Coming soon on Swiggy & Zomato" : "Premium quality ingredients"}
         </span>
       </div>
@@ -150,24 +150,34 @@ const ProductCatalogue = () => {
   const herbalProducts = products.filter((p) => p.category === "herbal");
 
   return (
-    <section id="catalogue" className="py-20 bg-background">
-      <div className="container mx-auto px-6">
+    <section id="catalogue" className="py-24 md:py-32 bg-background relative overflow-hidden">
+      {/* Background Glow */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-4xl h-96 bg-primary/5 rounded-full blur-3xl pointer-events-none" />
+      
+      <div className="container mx-auto px-6 relative z-10">
         {/* Section Header */}
-        <div className="text-center mb-16 animate-fade-in-up">
-          <h2 className="font-display text-4xl md:text-5xl font-bold text-foreground mb-4">
-            Our <span className="text-gradient">Products</span>
+        <div className="text-center mb-20">
+          <span className="inline-block px-4 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-sm font-medium text-primary mb-6 opacity-0 animate-fade-in-up" style={{ animationFillMode: 'forwards' }}>
+            Our Collection
+          </span>
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6 opacity-0 animate-fade-in-up" style={{ animationDelay: '0.1s', animationFillMode: 'forwards' }}>
+            Premium <span className="text-gradient">Products</span>
           </h2>
-          <p className="text-lg text-muted-foreground font-body max-w-2xl mx-auto">
-            Discover our premium collection of bubble teas and herbal blends
+          <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto opacity-0 animate-fade-in-up" style={{ animationDelay: '0.2s', animationFillMode: 'forwards' }}>
+            Discover our handcrafted collection of bubble teas and wellness herbal blends
           </p>
         </div>
 
         {/* Bubba Drinks Section */}
-        <div className="mb-20">
-          <h3 className="font-display text-2xl md:text-3xl font-semibold text-foreground mb-10 text-center flex items-center justify-center gap-3">
-            <span className="text-4xl">🧋</span> Bubba Drinks
-          </h3>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="mb-24">
+          <div className="flex items-center justify-center gap-4 mb-12">
+            <div className="h-px flex-1 max-w-24 bg-gradient-to-r from-transparent to-border" />
+            <h3 className="text-2xl md:text-3xl font-bold text-foreground flex items-center gap-3">
+              <span className="text-3xl">🧋</span> Bubba Drinks
+            </h3>
+            <div className="h-px flex-1 max-w-24 bg-gradient-to-l from-transparent to-border" />
+          </div>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
             {bubbaProducts.map((product, index) => (
               <ProductCard key={product.id} product={product} index={index} />
             ))}
@@ -176,10 +186,14 @@ const ProductCatalogue = () => {
 
         {/* Herbal Tea Section */}
         <div>
-          <h3 className="font-display text-2xl md:text-3xl font-semibold text-foreground mb-10 text-center flex items-center justify-center gap-3">
-            <span className="text-4xl">🍵</span> Herbal Teas
-          </h3>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="flex items-center justify-center gap-4 mb-12">
+            <div className="h-px flex-1 max-w-24 bg-gradient-to-r from-transparent to-border" />
+            <h3 className="text-2xl md:text-3xl font-bold text-foreground flex items-center gap-3">
+              <span className="text-3xl">🍵</span> Herbal Teas
+            </h3>
+            <div className="h-px flex-1 max-w-24 bg-gradient-to-l from-transparent to-border" />
+          </div>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
             {herbalProducts.map((product, index) => (
               <ProductCard key={product.id} product={product} index={index + 3} />
             ))}
