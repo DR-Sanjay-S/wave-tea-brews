@@ -1,96 +1,128 @@
-import { Leaf, Heart, Sparkles, Shield, Truck, Award } from "lucide-react";
+import { motion, useInView } from "framer-motion";
+import { useRef } from "react";
+import { Leaf, Heart, Award, Clock, Truck, ShieldCheck } from "lucide-react";
 
 const features = [
   {
     icon: Leaf,
-    title: "100% Natural",
-    description: "Sourced from the finest organic farms, our herbs are pure and pesticide-free.",
-    color: "bg-emerald-500/10 text-emerald-400",
+    title: "100% Organic",
+    description:
+      "All our ingredients are sourced from certified organic farms, ensuring pure and natural flavors.",
+    gradient: "from-emerald-500 to-green-600",
   },
   {
     icon: Heart,
-    title: "Wellness First",
-    description: "Each blend is carefully crafted to promote health, relaxation, and vitality.",
-    color: "bg-rose-500/10 text-rose-400",
+    title: "Made with Love",
+    description:
+      "Every drink is handcrafted with care by our skilled tea masters using traditional techniques.",
+    gradient: "from-rose-500 to-pink-600",
   },
   {
-    icon: Sparkles,
+    icon: Award,
     title: "Premium Quality",
-    description: "Experience the difference with our artisanal herbal tea collections.",
-    color: "bg-amber-500/10 text-amber-400",
+    description:
+      "We use only the finest tea leaves and freshest ingredients for an exceptional taste experience.",
+    gradient: "from-amber-500 to-orange-600",
   },
   {
-    icon: Shield,
-    title: "Lab Tested",
-    description: "Every batch undergoes rigorous quality testing for your safety.",
-    color: "bg-blue-500/10 text-blue-400",
+    icon: Clock,
+    title: "Fresh Daily",
+    description:
+      "Our drinks are prepared fresh every day to ensure maximum freshness and nutritional value.",
+    gradient: "from-blue-500 to-indigo-600",
   },
   {
     icon: Truck,
     title: "Fast Delivery",
-    description: "Quick delivery through Swiggy & Zomato once we launch.",
-    color: "bg-purple-500/10 text-purple-400",
+    description:
+      "Quick and reliable delivery through Swiggy & Zomato right to your doorstep.",
+    gradient: "from-violet-500 to-purple-600",
   },
   {
-    icon: Award,
-    title: "Award Winning",
-    description: "Recognized for exceptional taste and quality ingredients.",
-    color: "bg-teal-500/10 text-teal-400",
+    icon: ShieldCheck,
+    title: "Safety First",
+    description:
+      "Highest hygiene standards maintained throughout our preparation and delivery process.",
+    gradient: "from-teal-500 to-cyan-600",
   },
 ];
 
-const FeaturesSection = () => {
+const FeatureCard = ({
+  feature,
+  index,
+}: {
+  feature: (typeof features)[0];
+  index: number;
+}) => {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: "-50px" });
+
   return (
-    <section id="features" className="py-24 md:py-32 bg-secondary/30 relative overflow-hidden">
-      {/* Background Elements */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_30%_50%,hsl(78_50%_20%_/_0.1),transparent_50%)]" />
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_70%_80%,hsl(160_50%_15%_/_0.1),transparent_50%)]" />
-      
-      {/* Top Line */}
-      <div className="absolute top-0 left-0 right-0 glow-line" />
-      
-      <div className="container mx-auto px-6 relative z-10">
-        <div className="text-center mb-16">
-          <span className="inline-block px-4 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-sm font-medium text-primary mb-6 opacity-0 animate-fade-in-up" style={{ animationFillMode: 'forwards' }}>
-            Why Choose Us
-          </span>
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6 opacity-0 animate-fade-in-up" style={{ animationDelay: '0.1s', animationFillMode: 'forwards' }}>
-            Why <span className="text-gradient">WaveTea</span>?
-          </h2>
-          <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto opacity-0 animate-fade-in-up" style={{ animationDelay: '0.2s', animationFillMode: 'forwards' }}>
-            We believe in the power of nature to transform your daily wellness routine
-          </p>
+    <motion.div
+      ref={ref}
+      initial={{ opacity: 0, y: 50 }}
+      animate={isInView ? { opacity: 1, y: 0 } : {}}
+      transition={{ duration: 0.6, delay: index * 0.1, ease: "easeOut" }}
+      className="group"
+    >
+      <div className="h-full bg-card rounded-3xl border border-border p-8 shadow-soft hover:shadow-card transition-all duration-500 hover:-translate-y-2">
+        {/* Icon */}
+        <div
+          className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${feature.gradient} flex items-center justify-center mb-6 shadow-lg group-hover:scale-110 transition-transform duration-300`}
+        >
+          <feature.icon className="w-8 h-8 text-white" />
         </div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+        {/* Content */}
+        <h3 className="text-xl font-display font-semibold text-foreground mb-3 group-hover:text-primary transition-colors">
+          {feature.title}
+        </h3>
+        <p className="text-muted-foreground leading-relaxed">
+          {feature.description}
+        </p>
+      </div>
+    </motion.div>
+  );
+};
+
+const FeaturesSection = () => {
+  const sectionRef = useRef(null);
+  const isInView = useInView(sectionRef, { once: true, margin: "-100px" });
+
+  return (
+    <section id="features" className="py-24 bg-background relative overflow-hidden">
+      {/* Background Decorations */}
+      <div className="absolute top-1/2 left-0 w-72 h-72 bg-primary/5 rounded-full blur-3xl -translate-y-1/2" />
+      <div className="absolute top-1/3 right-0 w-96 h-96 bg-accent/5 rounded-full blur-3xl" />
+
+      <div className="container mx-auto px-4" ref={sectionRef}>
+        {/* Section Header */}
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.8 }}
+          className="text-center max-w-3xl mx-auto mb-16"
+        >
+          <div className="inline-flex items-center gap-2 px-4 py-2 bg-secondary rounded-full mb-6">
+            <Award className="w-4 h-4 text-primary" />
+            <span className="text-sm font-medium">Why Choose Us</span>
+          </div>
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold text-foreground mb-6">
+            The WaveTea <span className="text-gradient">Difference</span>
+          </h2>
+          <p className="text-lg text-muted-foreground">
+            We're committed to delivering the finest tea experience with quality,
+            care, and sustainability at our core.
+          </p>
+        </motion.div>
+
+        {/* Features Grid */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
           {features.map((feature, index) => (
-            <div 
-              key={feature.title}
-              className="group relative p-8 rounded-3xl bg-card/50 backdrop-blur-sm border border-border/50 hover:border-primary/30 transition-all duration-500 hover:-translate-y-1 opacity-0 animate-fade-in-up"
-              style={{ animationDelay: `${(index + 3) * 0.1}s`, animationFillMode: 'forwards' }}
-            >
-              {/* Icon */}
-              <div className={`w-14 h-14 rounded-2xl ${feature.color} flex items-center justify-center mb-6 transition-transform duration-300 group-hover:scale-110`}>
-                <feature.icon className="w-7 h-7" />
-              </div>
-
-              {/* Content */}
-              <h3 className="text-xl font-bold text-foreground mb-3">
-                {feature.title}
-              </h3>
-              <p className="text-muted-foreground leading-relaxed">
-                {feature.description}
-              </p>
-
-              {/* Corner Accent */}
-              <div className="absolute top-4 right-4 w-16 h-16 bg-gradient-to-br from-primary/5 to-transparent rounded-full blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-            </div>
+            <FeatureCard key={feature.title} feature={feature} index={index} />
           ))}
         </div>
       </div>
-      
-      {/* Bottom Line */}
-      <div className="absolute bottom-0 left-0 right-0 glow-line" />
     </section>
   );
 };
